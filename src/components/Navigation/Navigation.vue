@@ -6,7 +6,7 @@
        <!--<router-link to="/contact">Contact</router-link>-->
    <!--</div>-->
     <div class="center examplex">
-        <vs-navbar hide-scroll center-collapsed v-model="active" shadow text-white dark>
+        <vs-navbar hide-scroll center-collapsed v-model="active" shadow text-white dark fixed>
             <template #left>
                 <img src="../../assets/logo.png" alt="" width="75px">
             </template>
