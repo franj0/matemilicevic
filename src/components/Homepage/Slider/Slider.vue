@@ -1,5 +1,28 @@
 <template>
-    <h1>Slider component</h1>
+   <div>
+       <h1>Slider component</h1>
+       <h1>Slider component</h1>
+       <h1>Slider component</h1>
+       <h1>Slider component</h1>
+       <h1>Slider component</h1>
+       <h1>Slider component</h1>
+       <h1>Slider component</h1>
+       <h1>Slider component</h1>
+       <h1>Slider component</h1>
+       <h1>Slider component</h1>
+       <h1>Slider component</h1>
+       <h1>Slider component</h1>
+       <h1>Slider component</h1>
+       <h1>Slider component</h1>
+       <h1>Slider component</h1>
+       <h1>Slider component</h1>
+       <h1>Slider component</h1>
+       <h1>Slider component</h1>
+       <h1>Slider component</h1>
+       <h1>Slider component</h1>
+       <h1>Slider component</h1>
+       <h1>Slider component</h1>
+   </div>
 </template>
 
 <script>
