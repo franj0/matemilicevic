@@ -7,8 +7,10 @@ import { BootstrapVue, BootstrapVueIcons, IconsPlugin } from 'bootstrap-vue';
 // Import Bootstrap an BootstrapVue CSS files (order is important)
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
+import Embed from 'v-video-embed'
 
-
+// global register
+Vue.use(Embed);
 Vue.use(BootstrapVue);
 Vue.use(BootstrapVueIcons);
 Vue.use(IconsPlugin);

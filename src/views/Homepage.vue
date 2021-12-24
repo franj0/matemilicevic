@@ -1,7 +1,7 @@
 <template>
     <div id="mm-container">
         <!--<slider />-->
-        <div class="title">
+        <div class="title" ref="title" id="mm-title">
             <h1>MATE MILICEVIC</h1>
         </div>
         <members/>
@@ -23,6 +23,13 @@
             'members': Members,
             'gallery-preview': GalleryPreview,
             'video-section': VideoSection
+        },
+        mounted(){
+            let title = document.getElementById('mm-title');
+            window.addEventListener('scroll', () => {
+                let offset = window.pageYOffset;
+                title.style.backgroundPositionY = offset * (-0.7)+ 'px';
+            })
         }
     }
 </script>
@@ -30,16 +37,16 @@
 
 <style lang="scss">
     #mm-container {
+
+    }
+
+    .title {
         background-image: url('../../src/assets/MateMilicevicBandBackground.jpeg');
         background-attachment: fixed;
         background-repeat: no-repeat;
         -webkit-background-size: cover;
         background-size: cover;
-        height: 100vh;
         width: 100%;
-    }
-
-    .title {
         height: 100vh;
         display: flex;
         justify-content: center;
