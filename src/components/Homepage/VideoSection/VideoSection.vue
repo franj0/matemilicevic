@@ -1,5 +1,5 @@
 <template>
-   <div>
+   <div id="mm-video">
        <h1>VIDEO</h1>
        <video-embed :src="selectedVideo.url" ref="youtube"
                     :params="embed_video_params"
@@ -66,17 +66,25 @@
 </script>
 
 <style scoped lang="scss">
-    .video-box-container{
+    #mm-video{
+      background-color: $dark-purple;
+      color:#fff;
+      padding:100px 0;
+      h1{
+        margin-bottom:40px;
+      }
+      .video-box-container{
         display: flex;
         justify-content: center;
         .video-box{
-            width:150px; height:100px;
-            display:flex;
-            justify-content: center;
-            align-items: center;
-            background-image: url('../../../assets/son-goku-dragon-ball-ultra-instinct.jpg');
-            background-position: center;
-            background-size: contain;
+          width:150px; height:100px;
+          display:flex;
+          justify-content: center;
+          align-items: center;
+          background-image: url('../../../assets/son-goku-dragon-ball-ultra-instinct.jpg');
+          background-position: center;
+          background-size: contain;
         }
+      }
     }
 </style>
