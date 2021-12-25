@@ -2,7 +2,7 @@
     <div id="mm-container">
         <!--<slider />-->
         <div class="title" ref="title" id="mm-title">
-            <h1>MATE MILICEVIC</h1>
+            <h1>MATE MILICEVIC BAND</h1>
         </div>
         <members/>
         <video-section />
@@ -27,7 +27,7 @@
         mounted(){
             let title = document.getElementById('mm-title');
             window.addEventListener('scroll', () => {
-                let offset = window.pageYOffset;
+                let offset = window.scrollY;
                 title.style.backgroundPositionY = offset * (-0.7)+ 'px';
             })
         }

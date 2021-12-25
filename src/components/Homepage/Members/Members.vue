@@ -2,37 +2,40 @@
     <div id="mm-members">
         <h1>Members</h1>
         <div class="members-container">
-            <div class="member-box">Mate Milicevic</div>
-            <div class="member-box">Mile Ivicevic</div>
-            <div class="member-box">Lorena Neka</div>
+            <member-box name="Mile Ivicevic"
+                        :img="require('../../../assets/mate-milicevic-avatar.jpg')" />
+          <member-box name="MATE MILICEVIC"
+                        :img="require('../../../assets/mate-milicevic-avatar.jpg')" />
+          <member-box name="Lorena Neka"
+                        :img="require('../../../assets/mate-milicevic-avatar.jpg')" />
         </div>
     </div>
 </template>
 
 <script>
+    import MemberBox from "./MemberBox";
     export default {
-        name: "Members"
+        name: "Members",
+        components: {
+          'member-box': MemberBox,
+        },
     }
 </script>
 
 <style scoped lang="scss">
     #mm-members{
-        background:black; color:#fff;
-        .members-container{
-            padding:75px 0;
-            background: #00f;
+        background:$russian-violet; color:#fff;
+        padding:100px 0;
+      h1{
+        margin-bottom:40px;
+      }
+      .members-container{
             display:flex;
             justify-content: center;
             align-items:center;
+          flex-wrap:wrap;
             gap:25px;
-            .member-box{
-                width:300px;
-                height:300px;
-                background: red;
-                display:flex;
-                justify-content:center;
-                align-items:center;
-            }
+
         }
     }
 </style>
