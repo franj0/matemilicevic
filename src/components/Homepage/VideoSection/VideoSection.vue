@@ -4,13 +4,21 @@
         <video-embed :src="selectedVideo.url" ref="youtube"
                      :params="embed_video_params"
         ></video-embed>
-        <b-container>
-            <div class="video-box-container">
-                <div class="video-box" v-for="video in videos" :key="video.url">
-                    <button @click="selectVideo(video)">{{ video.title }}</button>
-                </div>
-            </div>
-        </b-container>
+<!--        <div class="video-box-container">-->
+<!--            <div class="video-box" v-for="video in videos" :key="video.id" @click="selectVideo(video)"-->
+<!--                 :style="{-->
+<!--                    'background-image': 'url(' + video.thumbnail + ')',-->
+<!--                }">-->
+<!--                <b-icon-play-btn-fill font-scale="4"></b-icon-play-btn-fill>-->
+<!--                <div class="overlay"-->
+<!--                     :style="{-->
+<!--                            'background-color': selectedVideo.url === video.url-->
+<!--                                                ? 'rgba(255, 255, 255, 0.3)'-->
+<!--                                                : 'rgba(255, 255, 255, 0)'-->
+<!--                         }"-->
+<!--                ></div>-->
+<!--            </div>-->
+<!--        </div>-->
     </div>
 </template>
 
@@ -30,44 +38,52 @@ export default {
             },
             videos: [
                 {
-                    title: "Video 1", url: "https://www.youtube.com/watch?v=5r_MS-ORkjI",
-                    thumbnail: "../../../assets/son-goku-dragon-ball-ultra-instinct.jpg"
+                    id: "0",
+                    title: "Video 1", url: "https://www.youtube.com/embed/iQ1VnpeGF3E",
+                    thumbnail: "https://img.youtube.com/vi/iQ1VnpeGF3E/mqdefault.jpg"
                 },
                 {
+                    id: "1",
                     title: "Video 2", url: "https://www.youtube.com/watch?v=4D7gzf1BapM",
-                    thumbnail: "../../../assets/son-goku-dragon-ball-ultra-instinct.jpg"
+                    thumbnail: "https://img.youtube.com/vi/4D7gzf1BapM/mqdefault.jpg"
                 },
                 {
+                    id: "2",
                     title: "Video 3", url: "https://www.youtube.com/watch?v=QPZY-YQnPlE",
-                    thumbnail: "../../../assets/son-goku-dragon-ball-ultra-instinct.jpg"
+                    thumbnail: "https://img.youtube.com/vi/QPZY-YQnPlE/mqdefault.jpg"
                 },
                 {
+                    id: "3",
                     title: "Video 4", url: "https://www.youtube.com/watch?v=6UmROHoLb-4",
-                    thumbnail: "../../../assets/son-goku-dragon-ball-ultra-instinct.jpg"
+                    thumbnail: "https://img.youtube.com/vi/6UmROHoLb-4/mqdefault.jpg"
                 },
-                {
-                    title: "Video 1", url: "https://www.youtube.com/watch?v=5r_MS-ORkjI",
-                    thumbnail: "../../../assets/son-goku-dragon-ball-ultra-instinct.jpg"
-                },
-                {
-                    title: "Video 2", url: "https://www.youtube.com/watch?v=4D7gzf1BapM",
-                    thumbnail: "../../../assets/son-goku-dragon-ball-ultra-instinct.jpg"
-                },
-                {
-                    title: "Video 3", url: "https://www.youtube.com/watch?v=QPZY-YQnPlE",
-                    thumbnail: "../../../assets/son-goku-dragon-ball-ultra-instinct.jpg"
-                },
-                {
-                    title: "Video 4", url: "https://www.youtube.com/watch?v=6UmROHoLb-4",
-                    thumbnail: "../../../assets/son-goku-dragon-ball-ultra-instinct.jpg"
-                },
+                // {
+                //     id: "4",
+                //     title: "Video 1", url: "https://www.youtube.com/watch?v=5r_MS-ORkjI",
+                //     thumbnail: "https://img.youtube.com/vi/5r_MS-ORkjI/mqdefault.jpg"
+                // },
+                // {
+                //     id: "5",
+                //     title: "Video 2", url: "https://www.youtube.com/watch?v=4D7gzf1BapM",
+                //     thumbnail: "https://img.youtube.com/vi/4D7gzf1BapM/mqdefault.jpg"
+                // },
+                // {
+                //     id: "6",
+                //     title: "Video 3", url: "https://www.youtube.com/watch?v=QPZY-YQnPlE",
+                //     thumbnail: "https://img.youtube.com/vi/QPZY-YQnPlE/mqdefault.jpg"
+                // },
+                // {
+                //     id: "7",
+                //     title: "Video 4", url: "https://www.youtube.com/watch?v=6UmROHoLb-4",
+                //     thumbnail: "https://img.youtube.com/vi/6UmROHoLb-4/mqdefault.jpg"
+                // },
             ]
         }
     },
     computed: {
         selectedVideo: {
             get() {
-                return {url: "https://www.youtube.com/embed/iQ1VnpeGF3E"}
+                return {url: "https://www.youtube.com/embed/iQ1VnpeGF3E", id: "0"}
             },
             set(newVideo) {
                 return newVideo
@@ -85,9 +101,9 @@ export default {
 
 <style scoped lang="scss">
 #mm-video {
-    background-color: $rich-black-fogra;
+    background-color: $russian-violet;
     color: #fff;
-    //padding:100px 0;
+    padding-top:100px;
     h1 {
         margin-bottom: 40px;
     }
@@ -95,18 +111,36 @@ export default {
     .video-box-container {
         display: flex;
         justify-content: center;
-        overflow: auto;
-        max-height: 400px;
+        overflow-x: scroll;
         gap: 30px;
-        flex-wrap: wrap;
+        //flex-wrap: wrap;
         .video-box {
-            border:1px solid gold;
+            border: 1px solid gold;
             min-width: 300px;
             min-height: 300px;
-            background-image: url('../../../assets/son-goku-dragon-ball-ultra-instinct.jpg');
             background-position: center;
             background-size: contain;
-            background-repeat:no-repeat;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            position: relative;
+
+            svg {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .overlay {
+                position: absolute;
+                inset: 0;
+                transition: background 0.3s;
+                background-color: rgba(255, 255, 255, 0);
+
+                &:hover {
+                    background: rgba(255, 255, 255, 0.3);
+                }
+            }
         }
     }
 }
