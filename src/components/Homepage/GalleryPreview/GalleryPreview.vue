@@ -1,62 +1,54 @@
 <template>
     <div id="mm-gallery">
-            <h1>Gallery preview</h1>
-        <b-img v-for="(img, key) in gallery" :key="key" :src="img.thumb" width="100px" height="100px"/>
-        <LightBox :media="gallery" v-if="displayGallery"></LightBox>
+        <div>
+            <b-tabs align="center" v-model="selectedTab" nav-class="tabs-class">
+                <b-tab title="VIDEOS" active  title-link-class="title-link-class"/>
+                <b-tab title="PICTURES" title-link-class="title-link-class"/>
+            </b-tabs>
+            <videos v-if="selectedTab === 0" />
+            <pictures v-if="selectedTab === 1" />
+        </div>
+
     </div>
 </template>
 
 <script>
-    import LightBox from 'vue-it-bigger'
-    import('vue-it-bigger/dist/vue-it-bigger.min.css') // when using webpack
+    import Pictures from "./Pictures";
+    import Videos from "./Videos";
     export default {
         name: "GalleryPreview",
         components:{
-            LightBox
+          "pictures": Pictures,
+          "videos": Videos
         },
         data(){
             return {
-                displayGallery: false
+                selectedTab: 0
             }
         },
-        computed:{
-            gallery:{
-                get(){
-                    return [
-                        { // For an image
-                            type: 'image', // Can be omitted for image
-                            thumb: 'https://i1.sndcdn.com/avatars-000355985468-4ef4s3-t240x240.jpg',
-                            src: 'https://i1.sndcdn.com/avatars-000355985468-4ef4s3-t240x240.jpg',
-                            caption: 'Caption to display. HTML <b>enabled</b>', // Optional
-                            srcset: '...' // Optional for displaying responsive images
-                        },
-                        { // For a YouTube video
-                            type: 'youtube',
-                            thumb: 'https://img.youtube.com/vi/WsptdUFthWI/hqdefault.jpg',
-                            id: 'WsptdUFthWI',
-                            caption: 'HTML <b>enabled</b> caption to display' // Optional
-                        },
-                        { // For a video that can be played in the <video> tag
-                            type: 'video',
-                            thumb: 'https://s3-us-west-1.amazonaws.com/powr/defaults/image-slider2.jpg',
-                            sources: [
-                                {
-                                    src: 'https://www.w3schools.com/html/mov_bbb.mp4',
-                                    type: 'video/mp4'
-                                }
-                            ],
-                            caption: '<h4>Monsters Inc.</h4>',
-                            width: 800, // Required
-                            height: 600, // Required
-                            autoplay: true // Optional: Autoplay video when the lightbox opens
-                        }
-                    ]
-                }
-            }
+        methods: {
+
         }
     }
 </script>
 
-<style scoped>
+<style  lang="scss">
+    #mm-gallery{
+        // styles for tabs navigation
+        .tabs-class{
+            background: linear-gradient(-90deg, $russian-violet 50%, $dark-purple 75%);
+            background: -moz-linear-gradient(-90deg, $russian-violet 50%, $dark-purple 75%);
+            background: -webkit-linear-gradient(-90deg, $russian-violet 50%, $dark-purple 75%);
 
+            //filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#24003a", endColorstr="#190028", GradientType=1 );
+            border-bottom:0 !important;
+            padding:100px 0;
+        }
+        .title-link-class{
+            background-color: transparent;
+            border:0;
+            outline:0;
+            font-size:28px;
+        }
+    }
 </style>

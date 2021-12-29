@@ -4,7 +4,6 @@
             <h1>MATE MILICEVIC BAND</h1>
         </div>
         <members/>
-        <video-section />
         <gallery-preview/>
     </div>
 </template>
@@ -12,14 +11,12 @@
 <script>
     import Members from '../components/Homepage/Members/Members.vue';
     import GalleryPreview from '../components/Homepage/GalleryPreview/GalleryPreview.vue';
-    import VideoSection from '../components/Homepage/VideoSection/VideoSection.vue';
 
     export default {
         name: 'Home',
         components: {
             'members': Members,
             'gallery-preview': GalleryPreview,
-            'video-section': VideoSection
         },
         mounted(){
             let title = document.getElementById('mm-title');
