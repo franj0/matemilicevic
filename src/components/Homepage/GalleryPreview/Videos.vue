@@ -1,6 +1,6 @@
 <template>
     <div id="mm-videos">
-        <video-embed :src="selectedVideo.src" ref="youtube"
+        <video-embed :src="selectedVideo.src" ref="youtube" v-model="selectedVideo"
                      :params="embed_video_params"
         ></video-embed>
         <div class="video-box-container">
@@ -13,7 +13,7 @@
                 <b-icon-play-btn-fill font-scale="4" color="#fff"></b-icon-play-btn-fill>
                 <div class="overlay"
                      :style="{
-                            'background-color': selectedVideo.src === video.src
+                            'background-color': selectedVideo.id === video.id
                                                 ? 'rgba(255, 255, 255, 0.3)'
                                                 : 'rgba(255, 255, 255, 0)'
                          }"
@@ -80,9 +80,12 @@ export default {
         }
     },
     methods: {
+        selectVideo(video){
+            this.$refs.youtube.src = video.src;
+        },
         openGallery(index) {
             this.$refs.videosLightbox.showImage(index)
-            this.selectedVideo = this.videos[index];
+            this.selectVideo(this.videos[index]);
         }
     }
 }
