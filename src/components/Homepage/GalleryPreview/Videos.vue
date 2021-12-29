@@ -1,10 +1,10 @@
 <template>
     <div id="mm-videos">
-        <video-embed :src="selectedVideo.src" ref="youtube" v-model="selectedVideo"
-                     :params="embed_video_params"
-        ></video-embed>
+<!--        <video-embed :src="selectedVideo.src" ref="youtube" v-model="selectedVideo"-->
+<!--                     :params="embed_video_params"-->
+<!--        ></video-embed>-->
         <div class="video-box-container">
-            <div class="video-box" v-for="(video, index) in videos" :key="video.id" @click="selectVideo(video)"
+            <div class="video-box" v-for="(video, index) in videos" :key="video.id"
                  :style="{
                     'background-image': 'url(' + video.thumb + ')',
                 }"
@@ -85,7 +85,7 @@ export default {
         },
         openGallery(index) {
             this.$refs.videosLightbox.showImage(index)
-            this.selectVideo(this.videos[index]);
+            // this.selectVideo(this.videos[index]);
         }
     }
 }
